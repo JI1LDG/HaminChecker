@@ -54,6 +54,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditFreq.xaml.cs">
+      <DependentUpon>EditFreq.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditPowerMode.xaml.cs">
+      <DependentUpon>EditPowerMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSectors.xaml.cs">
+      <DependentUpon>EditSectors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditString.xaml.cs">
+      <DependentUpon>EditString.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditTerms.xaml.cs">
+      <DependentUpon>EditTerms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEditor.cs" />
+    <Compile Include="ItemEditor.xaml.cs">
+      <DependentUpon>ItemEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptEditor.xaml.cs">
+      <DependentUpon>ScriptEditor.xaml</DependentUpon>
+    </Compile>
+    <Page Include="EditFreq.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPowerMode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditSectors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditString.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTerms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +112,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ScriptEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,6 +142,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogChecker\LogChecker.csproj">
+      <Project>{f906260e-c01f-4d26-bb80-d34b841770a2}</Project>
+      <Name>LogChecker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{62c55d4d-3dca-4355-93aa-c4db0a80f3fc}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,11 @@ namespace HaminChecker {
 	public partial class MainWindow : Window {
 		public MainWindow() {
 			InitializeComponent();
+			this.Hide();
+
+			var se = new ScriptEditor();
+			se.ShowDialog();
+			this.Close();
 		}
 	}
 }

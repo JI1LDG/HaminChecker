@@ -38,7 +38,6 @@ namespace FileReader {
 		/// 1バイト符号なし整数をストリームから読み込みます。
 		/// </summary>
 		public byte ReadByte() {
-			logger.Debug("Execute");
 			return bReader.ReadByte();
 		}
 
@@ -47,7 +46,6 @@ namespace FileReader {
 		/// </summary>
 		/// <param name="cnts">バイト数</param>
 		public byte[] ReadBytes(int cnts) {
-			logger.Debug("Execute(cnts: " + cnts + ")");
 			return bReader.ReadBytes(cnts);
 		}
 
@@ -55,7 +53,6 @@ namespace FileReader {
 		/// 2バイト符号なし整数をストリームから読み込みます。
 		/// </summary>
 		public ushort ReadWord() {
-			logger.Debug("Execute");
 			return bReader.ReadUInt16();
 		}
 
@@ -63,7 +60,6 @@ namespace FileReader {
 		/// 8バイト符号付き整数をストリームから読み込みます。
 		/// </summary>
 		public long ReadLong() {
-			logger.Debug("Execute");
 			return bReader.ReadInt64();
 		}
 
@@ -72,7 +68,6 @@ namespace FileReader {
 		/// </summary>
 		/// <param name="cnt">バイト数</param>
 		public string ReadString(int cnt) {
-			logger.Debug("Execute(cnt: " + cnt + ")");
 			return new string(bReader.ReadChars(cnt)).Split('\0')[0];
 		}
 	}

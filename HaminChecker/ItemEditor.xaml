@@ -1,0 +1,18 @@
+﻿<Window x:Class="HaminChecker.ItemEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HaminChecker"
+        mc:Ignorable="d"
+        Title="ItemEditor" Height="500" Width="500">
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Bottom">
+			<Button Name="BtUpdate" DockPanel.Dock="Right" Content="Update" Click="BtUpdate_Click"/>
+			<Button Name="BtCancel" DockPanel.Dock="Right" Content="Cancel" Click="BtCancel_Click"/>
+			<Button Name="BtInitialize" DockPanel.Dock="Left" Content="Initialize" Click="BtInitialize_Click"/>
+			<Label/>
+		</DockPanel>
+		<Grid Name="GdEditor"/>
+	</DockPanel>
+</Window>

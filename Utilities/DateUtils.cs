@@ -1,17 +1,12 @@
-﻿using NLog;
-
-namespace Utilities {
+﻿namespace Utilities {
 	/// <summary>
 	/// 日付処理クラス
 	/// </summary>
 	public class DateUtils {
-		private static Logger logger = LogManager.GetCurrentClassLogger();
-
 		/// <summary>
 		/// 現在の日付を文字列に変換します。
 		/// </summary>
 		public static string NowToString() {
-			logger.Debug("Execute");
 			return System.DateTime.Now.ToString("yyyy-MM-dd");
 		}
 
@@ -20,7 +15,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="updated">日付文字列</param>
 		public static System.DateTime FromString(string updated) {
-			logger.Debug("Execute(updated: " + updated + ")");
 			var date = updated.Split('-');
 			return new System.DateTime(int.Parse(date[0]) + 2_000, int.Parse(date[1]), int.Parse(date[2]));
 		}
@@ -56,7 +50,6 @@ namespace Utilities {
 
 			var week = System.Math.Max(1, weekNumber);
 			var day = 0;
-
 			do {
 				if(weekDay >= firstDay.DayOfWeek) {
 					day = 7 * (week - 1) + ((int)weekDay - (int)firstDay.DayOfWeek) + 1;

@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-using NLog;
-
 namespace Utilities {
 	/// <summary>
 	/// コールサイン処理クラス
 	/// </summary>
 	public class CallUtils {
-		private static Logger logger = LogManager.GetCurrentClassLogger();
-
 		public static readonly string[][] Prefectures = new string[][] {
 			new string[] { "長野県", "新潟県" },
 			new string[] { "東京都", "神奈川県", "千葉県", "埼玉県", "群馬県", "栃木県", "茨城県", "山梨県" },
@@ -28,7 +24,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static string RemoveStroke(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return callsign.Split('/')[0];
 		}
 
@@ -38,7 +33,6 @@ namespace Utilities {
 		/// <param name="callsign">処理コールサイン</param>
 		/// <returns>移動局の場合は移動エリア番号 非移動局の場合はnull</returns>
 		public static string GetPortableNo(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			if(callsign.Split('/').Length > 1) {
 				return callsign.Split('/')[1];
 			}
@@ -51,7 +45,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static string GetAreaNo(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return IsKanto(callsign) ? "1" : callsign.Substring(2, 1);
 		}
 
@@ -60,7 +53,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool IsKanto(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			if((IsJaCall(callsign) || Is8JaCall(callsign)) && callsign[2] == '1') return true;
 			if(Is7JaCall(callsign) && 'K' <= callsign[1] && callsign[1] <= 'N') return true;
 			return false;
@@ -71,7 +63,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static string[] GetPrefectures(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return int.TryParse(GetAreaNo(callsign), out int res) ? Prefectures[res] : null;
 		}
 
@@ -80,7 +71,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool IsJapanCall(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return IsJaCall(callsign) || Is7JaCall(callsign) || Is8JaCall(callsign) ? true : false;
 		}
 
@@ -89,7 +79,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool IsJaCall(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return Regex.IsMatch(callsign, @"^J([AE-S]\d|D1)[A-Z]{1,3}(/\d)?") ? true : false;
 		}
 
@@ -98,7 +87,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool Is7JaCall(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return Regex.IsMatch(callsign, @"^7(J\d|[K-N][1-4])[A-Z]{1,3}(/\d)?") ? true : false;
 		}
 
@@ -107,7 +95,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool Is8JaCall(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return Regex.IsMatch(callsign, @"^8[J-N]\d[0-9A-Z]*(/\d)?") ? true : false;
 		}
 
@@ -116,7 +103,6 @@ namespace Utilities {
 		/// </summary>
 		/// <param name="callsign">処理コールサイン</param>
 		public static bool IsAnivCall(string callsign) {
-			logger.Debug("Execute(callsign: " + callsign + ")");
 			return Regex.IsMatch(callsign, @"^8J\d[0-9A-Z]*(/\d)?") ? true : false;
 		}
 	}

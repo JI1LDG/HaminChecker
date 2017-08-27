@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="HaminChecker.EditTerms"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HaminChecker"
+             mc:Ignorable="d"
+			 Width="auto" Height="auto">
+	<DockPanel>
+		<RadioButton Name="RbDatePick" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="5" Content="日付指定"/>
+		<DatePicker Name="DpDate" Margin="5" DockPanel.Dock="Top"/>
+		<Label DockPanel.Dock="Top"/>
+		<RadioButton Name="RbDatePoint" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="5" Content="第#X曜日指定"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="3">
+			<ComboBox Name="CbMonth" Margin="2" SelectedIndex="0" SelectionChanged="CbMonth_SelectionChanged">
+				<ComboBoxItem>&lt;月&gt;</ComboBoxItem>
+			</ComboBox>
+			<ComboBox Name="CbCount" Margin="2" SelectedIndex="0" SelectionChanged="CbMonth_SelectionChanged">
+				<ComboBoxItem>&lt;第#&gt;</ComboBoxItem>
+			</ComboBox>
+			<ComboBox Name="CbWeekday" Margin="2" SelectedIndex="0" SelectionChanged="CbMonth_SelectionChanged">
+				<ComboBoxItem>&lt;X曜日&gt;</ComboBoxItem>
+			</ComboBox>
+		</WrapPanel>
+		<Label Name="LbExample" DockPanel.Dock="Top" Margin="5" Content="日付確認"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="3">
+			<Label Content="開始時間: " Margin="2"/>
+			<ComboBox Name="CbHour" Margin="2" SelectedIndex="0">
+				<ComboBoxItem>&lt;N時&gt;</ComboBoxItem>
+			</ComboBox>
+			<ComboBox Name="CbMinute" Margin="2" SelectedIndex="0">
+				<ComboBoxItem>&lt;N分&gt;</ComboBoxItem>
+			</ComboBox>
+		</WrapPanel>
+		<Label DockPanel.Dock="Top"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="3">
+			<Label Margin="2" DockPanel.Dock="Left" Content="コンテスト時間: "/>
+			<TextBox Name="TbTime" DockPanel.Dock="Left" MinWidth="50" Margin="2"/>
+			<ComboBox Name="CbTimeKind" Margin="2" SelectedIndex="0">
+				<ComboBoxItem>分間</ComboBoxItem>
+				<ComboBoxItem>時間</ComboBoxItem>
+				<ComboBoxItem>日間</ComboBoxItem>
+			</ComboBox>
+		</WrapPanel>
+		<Label DockPanel.Dock="Top"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="3">
+			<Button Name="BtCheckTerms" Margin="2" Content="期間確認" Click="BtCheckTerms_Click"/>
+			<Label Name="LbTerms" Margin="2" Content="ここにコンテスト期間が表示されます"/>
+		</WrapPanel>
+		<Label/>
+	</DockPanel>
+</UserControl>

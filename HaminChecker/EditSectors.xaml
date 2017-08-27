@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="HaminChecker.EditSectors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HaminChecker"
+             mc:Ignorable="d">
+	<DockPanel>
+		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Margin="5"/>
+		<DataGrid Name="DgSectors" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" CanUserAddRows="True" Margin="5">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="部門名" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="部門表示名" Binding="{Binding WrittenName}"/>
+				<DataGridTextColumn Header="部門コード" Binding="{Binding Code}"/>
+				<DataGridTextColumn Header="対象部門番号" Binding="{Binding ModeStr}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</DockPanel>
+</UserControl>
