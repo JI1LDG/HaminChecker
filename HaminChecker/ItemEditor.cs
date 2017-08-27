@@ -10,6 +10,8 @@ namespace HaminChecker {
 	interface IItemEditor {
 		CheckInfo Result { get; set; }
 		string ErrorStr { get; set; }
+		//int WindowHeight { get; set; }
+		//int WindowWidth { get; set; }
 		bool IsNotInvalid();
 		void Update();
 	}

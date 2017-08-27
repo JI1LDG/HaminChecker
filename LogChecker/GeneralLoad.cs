@@ -1,12 +1,10 @@
-﻿using NLog;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace LogChecker {
 	/// <summary>
 	/// 基本設定読み込みクラス
 	/// </summary>
 	public class GeneralLoad {
-		private static Logger logger = LogManager.GetCurrentClassLogger();
 		public List<Do.CheckInfo> Checks;
 
 		/// <summary>
@@ -32,7 +30,6 @@ namespace LogChecker {
 		/// </summary>
 		/// <param name="str">対象文字列</param>
 		public void Execute(string str) {
-			logger.Debug("Start");
 			while(str.Length > 0) {
 				var line = str.Substring(0, str.IndexOf("\r\n") - 1);
 				str = str.Substring(0, line.Length + 2);
@@ -61,7 +58,6 @@ namespace LogChecker {
 						break;
 				}
 			}
-			logger.Debug("End");
 		}
 
 		/// <summary>
@@ -69,7 +65,6 @@ namespace LogChecker {
 		/// </summary>
 		/// <param name="str">対象文字列</param>
 		private string GetData(string str) {
-			logger.Debug("Execute(str: " + str + ")");
 			try {
 				return str.Substring(str.IndexOf(": ") + 2);
 			} catch {

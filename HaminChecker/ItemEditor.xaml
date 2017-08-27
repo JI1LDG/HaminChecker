@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HaminChecker"
         mc:Ignorable="d"
-        Title="ItemEditor" Height="500" Width="500">
+        Title="ItemEditor" Height="500" Width="500" SizeChanged="Window_SizeChanged">
 	<DockPanel>
 		<DockPanel DockPanel.Dock="Bottom">
 			<Button Name="BtUpdate" DockPanel.Dock="Right" Content="Update" Click="BtUpdate_Click"/>

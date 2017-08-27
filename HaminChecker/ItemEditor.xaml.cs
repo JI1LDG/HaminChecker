@@ -35,30 +35,37 @@ namespace HaminChecker {
 			this.Title = "Edit: " + checks.Name + "(" + checks.Rem + ")";
 			switch(checks.Mode) {
 				case SetMode.String:
-				case SetMode.CommaEd:
 					var estring = new EditString(checks);
 					GdEditor.Children.Add(estring);
 					editor = estring;
+					this.Height = 130;
 					break;
 				case SetMode.Terms:
 					var eterms = new EditTerms(checks);
 					GdEditor.Children.Add(eterms);
 					editor = eterms;
+					this.Height = 400;
+					this.Width = 370;
 					break;
 				case SetMode.Frequency:
 					var efreq = new EditFreq(checks);
 					GdEditor.Children.Add(efreq);
 					editor = efreq;
+					this.Height = 350;
+					this.Width = 260;
 					break;
 				case SetMode.PowerMode:
 					var emode = new EditPowerMode(checks);
 					GdEditor.Children.Add(emode);
 					editor = emode;
+					this.Height = 250;
+					this.Width = 300;
 					break;
 				case SetMode.Sector:
 					var esect = new EditSectors(checks);
 					GdEditor.Children.Add(esect);
 					editor = esect;
+					this.Width = 900;
 					break;
 				default:
 					break;
@@ -100,6 +107,10 @@ namespace HaminChecker {
 			}
 			Result = editor.Result;
 			this.Close();
+		}
+
+		private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+			this.Title = this.ActualHeight + ", " + this.ActualWidth;
 		}
 	}
 }

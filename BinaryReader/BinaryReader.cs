@@ -1,13 +1,10 @@
-﻿using NLog;
-using System;
+﻿using System;
 
 namespace FileReader {
 	/// <summary>
 	/// バイナリデータ読み込みクラス
 	/// </summary>
 	public class BinaryReader {
-		private static Logger logger = LogManager.GetCurrentClassLogger();
-
 		private System.IO.FileStream fStream;
 		private System.IO.BinaryReader bReader;
 
@@ -16,14 +13,12 @@ namespace FileReader {
 		/// </summary>
 		/// <param name="path">ファイルパス</param>
 		public BinaryReader(string path) {
-			logger.Debug("Start(path: " + path + ")");
 			try {
 				fStream = new System.IO.FileStream(path, System.IO.FileMode.Open);
 				bReader = new System.IO.BinaryReader(fStream);
 			} catch(Exception e) {
-				logger.Error(e, e.Message);
+				System.Console.WriteLine(e.Message);
 			}
-			logger.Debug("End");
 		}
 
 		/// <summary>

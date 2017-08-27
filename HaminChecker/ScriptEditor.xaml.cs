@@ -30,8 +30,7 @@ namespace HaminChecker {
 				new CheckInfo("Freq1", "対象周波数", SetMode.Frequency, "3.5,7,14,21,28,50,144,430,1200,2400,5600"),
 				new CheckInfo("Freq2", "対象周波数", SetMode.Frequency),
 				new CheckInfo("Freq3", "対象周波数", SetMode.Frequency),
-				new CheckInfo("PowerMode", "最大電力・部門", SetMode.PowerMode, "[H,H]免許範囲内;[M,M]100;[,M]10(20);[P,P]5;"),
-				new CheckInfo("PowerSign", "空中線電力記号", SetMode.CommaEd, "H,M,L,P"),
+				new CheckInfo("PowerMode", "最大電力・部門", SetMode.PowerMode, "[H,H]免許範囲内;[M,M]100;[,L]10(20);[P,P]5;"),
 				new CheckInfo("Sectors", "部門", SetMode.Sector, "電話部門シングルオペオールバンド(除14MHz);電話部門シングルオペオールバンド;PA;2;;14;`電信電話部門マルチオペオールバンド;;XMA;0,1;;;"),
 			};
 			InitializeComponent();
@@ -100,7 +99,6 @@ namespace HaminChecker {
 
 				switch(gc.Mode) {
 					case SetMode.String:
-					case SetMode.CommaEd:
 						iie = new EditString(gc);
 						break;
 					case SetMode.Terms:
@@ -135,6 +133,10 @@ namespace HaminChecker {
 
 		private void BtnClose_Click(object sender, RoutedEventArgs e) {
 			this.Close();
+		}
+
+		private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+			this.Title = this.ActualHeight + ", " + this.ActualWidth;
 		}
 	}
 }

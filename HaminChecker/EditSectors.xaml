@@ -6,14 +6,16 @@
              xmlns:local="clr-namespace:HaminChecker"
              mc:Ignorable="d">
 	<DockPanel>
-		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Margin="5"/>
-		<DataGrid Name="DgSectors" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" CanUserAddRows="True" Margin="5">
+		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Margin="5" Click="BtAddRow_Click"/>
+		<DataGrid Name="DgSectors" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" SelectionMode="Single" PreviewMouseRightButtonDown="DgSectors_PreviewMouseRightButtonDown" Margin="5">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="部門名" Binding="{Binding Name}"/>
-				<DataGridTextColumn Header="部門表示名" Binding="{Binding WrittenName}"/>
+				<DataGridTextColumn Header="表示部門名" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="部門名" Binding="{Binding WrittenName}"/>
 				<DataGridTextColumn Header="部門コード" Binding="{Binding Code}"/>
 				<DataGridTextColumn Header="対象部門番号" Binding="{Binding ModeStr}"/>
-			</DataGrid.Columns>
+                <DataGridTextColumn Header="対象周波数" Binding="{Binding EnabledFreqStr}"/>
+                <DataGridTextColumn Header="非対象周波数" Binding="{Binding UnabledFreqStr}"/>
+            </DataGrid.Columns>
 		</DataGrid>
 	</DockPanel>
 </UserControl>

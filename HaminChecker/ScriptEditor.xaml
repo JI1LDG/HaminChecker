@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HaminChecker"
         mc:Ignorable="d"
-        Title="ScriptEditor" Height="500" Width="500">
+        Title="ScriptEditor" Height="500" Width="900">
 	<DockPanel>
 		<DockPanel DockPanel.Dock="Bottom" Margin="5">
 			<Button Name="BtnSave" DockPanel.Dock="Left" Content="Save" Click="BtnSave_Click"/>

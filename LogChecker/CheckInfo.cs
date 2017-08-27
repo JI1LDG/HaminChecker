@@ -137,15 +137,23 @@ namespace LogChecker.Do {
 			set { modes = value; }
 		}
 		public string ModeStr {
-			get { return (modes == null) ? "<empty>" : string.Join(",", modes.Select(x => x.ToString())); }
+			get { return (modes == null) ? "" : string.Join(",", modes.Select(x => x.ToString())); }
 			set { modes = Definer.SplitWithComma(value).IntParse().ToArray(); }
 		}
-		public Freqs[] EnabledFreqs;
-		public Freqs[] UnenabledFreqs;
+		public Freqs[] EnabledFreqs { get; set; }
+		public string EnabledFreqStr {
+            get { return (EnabledFreqs == null) ? "" : EnabledFreqs.JoinString(); }
+            set { EnabledFreqs = value.Split(',').Select(x => Enums.FreqFromString(x)).Where(x => x != Freqs.None).ToArray(); }
+        }
+		public Freqs[] UnabledFreqs { get; set; }
+		public string UnabledFreqStr {
+            get { return (UnabledFreqs == null) ? "" : UnabledFreqs.JoinString(); }
+            set { UnabledFreqs = value.Split(',').Select(x => Enums.FreqFromString(x)).Where(x => x != Freqs.None).ToArray(); }
+        }
 
-		public override string ToString() {
+        public override string ToString() {
 			var mds = Modes.Select(x => x.ToString())?.ToArray();
-			return Name + "(" + WrittenName + "): Code/" + Code + ", Mode/" + ((mds == null) ? "" : string.Join(", ", mds)) + ", EF/" + EnabledFreqs.JoinString() + ", UF/" + UnenabledFreqs.JoinString();
+			return Name + "(" + WrittenName + "): Code/" + Code + ", Mode/" + ((mds == null) ? "" : string.Join(", ", mds)) + ", EF/" + EnabledFreqs.JoinString() + ", UF/" + UnabledFreqs.JoinString();
 		}
 	}
 

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-using NLog;
-
 using Utilities;
 
 namespace LogChecker {
@@ -12,8 +10,6 @@ namespace LogChecker {
 	/// スクリプト解析クラス
 	/// </summary>
 	public class Definer {
-		private static Logger logger = LogManager.GetCurrentClassLogger();
-
 		/// <summary>
 		/// 期間定義文字列から開始・終了日時を取得します。
 		/// </summary>
@@ -83,7 +79,7 @@ namespace LogChecker {
 					return dt;
 				}
 			} catch(Exception e) {
-				logger.Error(e, e.Message);
+				Console.WriteLine(e.Message);
 			}
 
 			return null;
@@ -98,7 +94,7 @@ namespace LogChecker {
 				var spl = freqs.Split(',');
 				return spl.Select(x => Enums.FreqFromString(x)).Where(x => x != Freqs.None).ToArray();
 			} catch(Exception e) {
-				logger.Error(e, e.Message);
+				Console.WriteLine(e.Message);
 				return null;
 			}
 		}
@@ -119,7 +115,7 @@ namespace LogChecker {
 					return Do.PowerMode.GetByScript(spows, conno, names);
 				}
 			} catch(Exception e) {
-				logger.Error(e, e.Message);
+				Console.WriteLine(e.Message);
 			}
 			return null;
 		}
@@ -156,10 +152,10 @@ namespace LogChecker {
 						Code = m[2],
 						Modes = m[3].Split(',').IntParse().ToArray(),
 						EnabledFreqs = m[4].Split(',').Select(y => Enums.FreqFromString(y)).ToArray(),
-						UnenabledFreqs = m[5].Split(',').Select(y => Enums.FreqFromString(y)).ToArray(),
+						UnabledFreqs = m[5].Split(',').Select(y => Enums.FreqFromString(y)).ToArray(),
 					};
 				} catch(Exception e) {
-					logger.Error(e, e.Message);
+					Console.WriteLine(e.Message);
 					continue;
 				}
 
