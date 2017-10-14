@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F906260E-C01F-4D26-BB80-D34B841770A2}</ProjectGuid>
+    <ProjectGuid>{2DE9D685-4724-4AFE-B960-19AF2C2D7658}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LogChecker</RootNamespace>
-    <AssemblyName>LogChecker</AssemblyName>
+    <RootNamespace>ScriptIo</RootNamespace>
+    <AssemblyName>ScriptIo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,19 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckInfo.cs" />
-    <Compile Include="Definer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Script.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{62c55d4d-3dca-4355-93aa-c4db0a80f3fc}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogChecker\LogChecker.csproj">
+      <Project>{f906260e-c01f-4d26-bb80-d34b841770a2}</Project>
+      <Name>LogChecker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

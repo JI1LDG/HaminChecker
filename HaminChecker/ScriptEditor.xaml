@@ -8,17 +8,17 @@
         Title="ScriptEditor" Height="500" Width="900">
 	<DockPanel>
 		<DockPanel DockPanel.Dock="Bottom" Margin="5">
-			<Button Name="BtnSave" DockPanel.Dock="Left" Content="Save" Click="BtnSave_Click"/>
-			<Button Name="BtnClose" DockPanel.Dock="Right" Content="Close" Click="BtnClose_Click"/>
+			<Button Name="BtnSave" DockPanel.Dock="Left" Content="Save" Click="BtnSave_Click" Margin="2"/>
+			<Button Name="BtnClose" DockPanel.Dock="Right" Content="Close" Click="BtnClose_Click" Margin="2"/>
 			<Label/>
 		</DockPanel>
-		<DockPanel DockPanel.Dock="Top" Margin="3">
-			<Button Name="BtnOpen" DockPanel.Dock="Right" Content="Open" Margin="2"/>
-			<ComboBox Margin="2"/>
+		<DockPanel DockPanel.Dock="Top" Margin="5">
+			<Button Name="BtnOpen" DockPanel.Dock="Right" Content="Open" Click="BtnOpen_Click" Margin="2"/>
+			<ComboBox Name="CbFiles" Margin="2"/>
 		</DockPanel>
 		<TabControl Margin="5">
 			<TabItem Header="General">
-				<DataGrid Name="DgGeneral" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" PreviewMouseRightButtonDown="DgGeneral_PreviewMouseRightButtonDown">
+				<DataGrid Name="DgGeneral" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" PreviewMouseRightButtonDown="DgGeneral_PreviewMouseRightButtonDown" Margin="2">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="項目名" Binding="{Binding Name}" IsReadOnly="True"/>
 						<DataGridTextColumn Header="説明" Binding="{Binding Rem}" IsReadOnly="True"/>
@@ -26,7 +26,15 @@
 					</DataGrid.Columns>
 				</DataGrid>
 			</TabItem>
-			<TabItem Header="Area"/>
+            <TabItem Header="Area">
+                <DockPanel Margin="2">
+                    <DockPanel DockPanel.Dock="Bottom">
+                        <Button Name="BtAreaChk" Content="Check" DockPanel.Dock="Right" Click="BtAreaChk_Click" Margin="2"/>
+                        <Label/>
+                    </DockPanel>
+                    <TextBox Name="TbArea" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2"/>
+                </DockPanel>
+            </TabItem>
 		</TabControl>
 	</DockPanel>
 </Window>

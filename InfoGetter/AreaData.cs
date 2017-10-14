@@ -13,4 +13,16 @@ namespace InfoGetter.Do {
 			Addresses = new List<string>();
 		}
 	}
+
+	public class SingleAreaData {
+		public string No { get; set; }
+		public string Name { get; set; }
+		public string Address { get; set; }
+
+		public static IEnumerable<SingleAreaData> GetFromLists(IEnumerable<AreaData> data) {
+			foreach (var listdata in data) {
+				yield return new SingleAreaData() { No = listdata.No, Name = listdata.Name, Address = string.Join(", ", listdata.Addresses) };
+			}
+		}
+	}
 }

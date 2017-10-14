@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HaminChecker"
              mc:Ignorable="d">
 	<DockPanel>
-		<DockPanel DockPanel.Dock="Top" Margin="3">
+		<DockPanel DockPanel.Dock="Top" Margin="5">
 			<Label Name="LbName" Margin="2" Content="&lt;sample&gt;"/>
 			<TextBox Name="TbString" MaxLines="1" Margin="2" Text="&lt;hoge&gt;"/>
 		</DockPanel>

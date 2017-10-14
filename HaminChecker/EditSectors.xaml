@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:HaminChecker"
              mc:Ignorable="d">
 	<DockPanel>
-		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Margin="5" Click="BtAddRow_Click"/>
-		<DataGrid Name="DgSectors" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" SelectionMode="Single" PreviewMouseRightButtonDown="DgSectors_PreviewMouseRightButtonDown" Margin="5">
+		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Margin="2" Click="BtAddRow_Click"/>
+		<DataGrid Name="DgSectors" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" SelectionMode="Single" PreviewMouseRightButtonDown="DgSectors_PreviewMouseRightButtonDown" Margin="2">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="表示部門名" Binding="{Binding Name}"/>
 				<DataGridTextColumn Header="部門名" Binding="{Binding WrittenName}"/>

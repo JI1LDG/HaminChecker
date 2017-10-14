@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using InfoGetter.Do;
 using LogChecker.Do;
 using System.Collections.ObjectModel;
 
@@ -20,20 +21,16 @@ namespace HaminChecker {
 	/// ScriptEditor.xaml の相互作用ロジック
 	/// </summary>
 	public partial class ScriptEditor : Window {
-		private ObservableCollection<CheckInfo> GeneralChecks;
+		private ObservableCollection<CheckInfo> GeneralChecks = new ObservableCollection<CheckInfo>();
+		private List<AreaTelegram> Areas = new List<AreaTelegram>();
+		private string NowFile = null;
+
 		public ScriptEditor() {
-			GeneralChecks = new ObservableCollection<CheckInfo>() {
-				new CheckInfo("ContestName", "コンテスト名", SetMode.String, "全市全郡コンテスト"),
-				new CheckInfo("Terms1", "期間", SetMode.Terms, "@[1 Saturday October]-21:00 24Hs"),
-				new CheckInfo("Terms2", "期間", SetMode.Terms),
-				new CheckInfo("Terms3", "期間", SetMode.Terms),
-				new CheckInfo("Freq1", "対象周波数", SetMode.Frequency, "3.5,7,14,21,28,50,144,430,1200,2400,5600"),
-				new CheckInfo("Freq2", "対象周波数", SetMode.Frequency),
-				new CheckInfo("Freq3", "対象周波数", SetMode.Frequency),
-				new CheckInfo("PowerMode", "最大電力・部門", SetMode.PowerMode, "[H,H]免許範囲内;[M,M]100;[,L]10(20);[P,P]5;"),
-				new CheckInfo("Sectors", "部門", SetMode.Sector, "電話部門シングルオペオールバンド(除14MHz);電話部門シングルオペオールバンド;PA;2;;14;`電信電話部門マルチオペオールバンド;;XMA;0,1;;;"),
-			};
 			InitializeComponent();
+			
+			foreach (var item in System.IO.Directory.GetFiles(System.IO.Directory.GetCurrentDirectory() + "\\Scripts", "*.scp.txt", System.IO.SearchOption.TopDirectoryOnly)) {
+				CbFiles.Items.Add(item.Remove(0, System.IO.Directory.GetCurrentDirectory().Length + 1));
+			}
 			DgGeneral.ItemsSource = GeneralChecks;
 		}
 
@@ -137,6 +134,36 @@ namespace HaminChecker {
 
 		private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
 			this.Title = this.ActualHeight + ", " + this.ActualWidth;
+		}
+
+		private void BtnOpen_Click(object sender, RoutedEventArgs e) {
+			string filename = CbFiles.SelectedItem?.ToString();
+
+			if (filename == null) {
+				MessageBox.Show("ファイルを選択してください。");
+			} else {
+				NowFile = filename;
+				var json = Utilities.ScriptIo.GetJsons(filename);
+
+				GeneralChecks = new ObservableCollection<CheckInfo>(Utilities.ScriptIo.ReadJsonCi<CheckInfo>(json["General"]));
+				DgGeneral.ItemsSource = GeneralChecks;
+
+				TbArea.Text = "";
+
+				Areas = Utilities.ScriptIo.ReadJsonCi<AreaTelegram>(json["Area"]);
+				foreach (var a in Areas) {
+					TbArea.Text += a.ToString() + "\r\n";
+				}
+			}
+		}
+
+		private void BtAreaChk_Click(object sender, RoutedEventArgs e) {
+			var TelgObj = TbArea.Text.Replace("\r\n", "`").Split('`').Select(x => AreaTelegram.GetObject(x)).Where(x => x != null).ToArray();
+
+			var areaList = InfoGetter.AreaLoader.AnalyzeTelegram(TelgObj);
+
+			var dlg = new AreaChecker(areaList.ToArray());
+			dlg.ShowDialog();
 		}
 	}
 }

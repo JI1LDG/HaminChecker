@@ -7,11 +7,11 @@
              mc:Ignorable="d"
 			 Width="auto" Height="auto">
 	<DockPanel>
-		<RadioButton Name="RbDatePick" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="5" Content="日付指定"/>
-		<DatePicker Name="DpDate" Margin="5" DockPanel.Dock="Top"/>
+		<RadioButton Name="RbDatePick" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="2" Content="日付指定"/>
+		<DatePicker Name="DpDate" Margin="2" DockPanel.Dock="Top"/>
 		<Label DockPanel.Dock="Top"/>
-		<RadioButton Name="RbDatePoint" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="5" Content="第#X曜日指定"/>
-		<WrapPanel DockPanel.Dock="Top" Margin="3">
+		<RadioButton Name="RbDatePoint" GroupName="DateDeciding" DockPanel.Dock="Top" Margin="2" Content="第#X曜日指定"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="5">
 			<ComboBox Name="CbMonth" Margin="2" SelectedIndex="0" SelectionChanged="CbMonth_SelectionChanged">
 				<ComboBoxItem>&lt;月&gt;</ComboBoxItem>
 			</ComboBox>
@@ -22,8 +22,8 @@
 				<ComboBoxItem>&lt;X曜日&gt;</ComboBoxItem>
 			</ComboBox>
 		</WrapPanel>
-		<Label Name="LbExample" DockPanel.Dock="Top" Margin="5" Content="日付確認"/>
-		<WrapPanel DockPanel.Dock="Top" Margin="3">
+		<Label Name="LbExample" DockPanel.Dock="Top" Margin="2" Content="日付確認"/>
+		<WrapPanel DockPanel.Dock="Top" Margin="5">
 			<Label Content="開始時間: " Margin="2"/>
 			<ComboBox Name="CbHour" Margin="2" SelectedIndex="0">
 				<ComboBoxItem>&lt;N時&gt;</ComboBoxItem>
@@ -33,7 +33,7 @@
 			</ComboBox>
 		</WrapPanel>
 		<Label DockPanel.Dock="Top"/>
-		<WrapPanel DockPanel.Dock="Top" Margin="3">
+		<WrapPanel DockPanel.Dock="Top" Margin="5">
 			<Label Margin="2" DockPanel.Dock="Left" Content="コンテスト時間: "/>
 			<TextBox Name="TbTime" DockPanel.Dock="Left" MinWidth="50" Margin="2"/>
 			<ComboBox Name="CbTimeKind" Margin="2" SelectedIndex="0">
@@ -43,7 +43,7 @@
 			</ComboBox>
 		</WrapPanel>
 		<Label DockPanel.Dock="Top"/>
-		<WrapPanel DockPanel.Dock="Top" Margin="3">
+		<WrapPanel DockPanel.Dock="Top" Margin="5">
 			<Button Name="BtCheckTerms" Margin="2" Content="期間確認" Click="BtCheckTerms_Click"/>
 			<Label Name="LbTerms" Margin="2" Content="ここにコンテスト期間が表示されます"/>
 		</WrapPanel>

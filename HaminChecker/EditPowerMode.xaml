@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:HaminChecker"
              mc:Ignorable="d">
 	<DockPanel>
-		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Click="BtAddRow_Click" Margin="5"/>
-		<DataGrid Name="DgModes" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" CanUserAddRows="True" Margin="5">
+		<Button Name="BtAddRow" DockPanel.Dock="Bottom" Width="auto" Content="AddRows" Click="BtAddRow_Click" Margin="2"/>
+		<DataGrid Name="DgModes" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserSortColumns="False" SelectionMode="Single" CanUserAddRows="True" Margin="2">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="カテゴリ記号" Binding="{Binding SuffixPowerSign}"/>
 				<DataGridTextColumn Header="コンテストナンバ末尾" Binding="{Binding SuffixContestNo}"/>

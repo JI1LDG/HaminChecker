@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AreaChecker.xaml.cs">
+      <DependentUpon>AreaChecker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditFreq.xaml.cs">
       <DependentUpon>EditFreq.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
     <Compile Include="ScriptEditor.xaml.cs">
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
     </Compile>
+    <Page Include="AreaChecker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditFreq.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,6 +151,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InfoGetter\InfoGetter.csproj">
+      <Project>{ff3537cc-5717-4970-a8c7-7b53afc3734b}</Project>
+      <Name>InfoGetter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogChecker\LogChecker.csproj">
       <Project>{f906260e-c01f-4d26-bb80-d34b841770a2}</Project>
       <Name>LogChecker</Name>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HaminChecker"
              mc:Ignorable="d">
 	<DockPanel>
-		<ScrollViewer>
+		<ScrollViewer Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
 			<Grid Name="GdFreqs">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition/>
