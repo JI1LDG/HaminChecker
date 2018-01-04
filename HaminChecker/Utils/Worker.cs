@@ -171,22 +171,23 @@ namespace HaminChecker.Utils {
 
 							if (Callsign.GetPortableNo(l.Callsign) != -1) {
 								failed.Add("移動局: " + Callsign.Areas[Callsign.GetPortableNo(l.Callsign)] + "地方");
-							}
+							} else {
 
-							var addr = area.FirstOrDefault(x => x.No == nos);
+								var addr = area.FirstOrDefault(x => x.No == nos);
 
-							if (addr == null) {
-								l.SetMax(5);
-								failed.Add("地域番号が存在しません");
-								if (Callsign.GetPortableNo(l.Callsign) == -1) {
-									string suggest = "";
-									for (int k = 0; k < si.Address.Count; k++) {
-										foreach (var aw in area.Where(x => x.Addresses.Exists(y => si.Address[k].Contains(y)))) {
-											suggest += aw.No + ", ";
-											break;
+								if (addr == null) {
+									l.SetMax(5);
+									failed.Add("地域番号が存在しません");
+									if (Callsign.GetPortableNo(l.Callsign) == -1) {
+										string suggest = "";
+										for (int k = 0; k < si.Address.Count; k++) {
+											foreach (var aw in area.Where(x => x.Addresses.Exists(y => si.Address[k].Contains(y)))) {
+												suggest += aw.No + ", ";
+												break;
+											}
 										}
+										failed.Add("もしかして: " + suggest);
 									}
-									failed.Add("もしかして: " + suggest);
 								}
 							}
 						}
