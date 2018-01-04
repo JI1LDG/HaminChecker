@@ -97,7 +97,7 @@ namespace HaminChecker {
 		}
 
 		private string MakeSummery(CheckData check) {
-			string log = "<SUMMARYSHEET VERSION=R2.0>";
+			string log = "<SUMMARYSHEET VERSION=R2.0>\r\n";
 
 			try {
 				if (check.Gens.GetByName("ContestName").IsEmpty()) {
