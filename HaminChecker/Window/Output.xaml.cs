@@ -71,22 +71,21 @@ namespace HaminChecker {
 
 				try {
 					string nos = Regex.Matches(l.RecvCn, tmp)[0].Groups[1].Value;
-					if (multCnt[(int)Frequency.FromString(l.Freq)].Exists(x => x == nos)) {
-						multCnt[(int)Frequency.FromString(l.Freq)].Add(nos);
+					if (!multCnt[(int)Frequency.FromStringWithUnits(l.Freq)].Exists(x => x == nos)) {
+						multCnt[(int)Frequency.FromStringWithUnits(l.Freq)].Add(nos);
 					}
 				} catch {
 					continue;
 				}
+				calls++;
 
-				sheet += l.Date.ToString("yyyy-MM-dd hh:mm ") + l.Freq.Replace("MHz", " ") + l.Mode + " ";
+				sheet += l.Date.ToString("yyyy-MM-dd hh:mm ") + l.Freq.Replace("MHz", " ") + l.Mode + " " + l.Callsign + " ";
 				int sep = 2;
 				if (l.Mode == "CW") {
 					sep = 3;
 				}
 				sheet += l.SentCn.Substring(0, sep) + " " + l.SentCn.Substring(sep) + " ";
 				sheet += l.RecvCn.Substring(0, sep) + " " + l.RecvCn.Substring(sep) + "\r\n";
-
-				calls++;
 			}
 
 			multis = multCnt.Sum(x => x.Count);

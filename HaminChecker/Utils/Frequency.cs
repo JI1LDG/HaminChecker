@@ -38,6 +38,19 @@ namespace HaminChecker.Utils {
 		}
 
 		/// <summary>
+		/// MHz付きの文字列から周波数列挙体に変換します。
+		/// </summary>
+		/// <param name="str">対象文字列</param>
+		public static Freqs FromStringWithUnits(string str) {
+			var idx = FreqNames.ToList().FindIndex(x => x == str);
+			if (idx == -1) {
+				return Freqs.None;
+			} else {
+				return (Freqs)idx;
+			}
+		}
+
+		/// <summary>
 		/// カンマ区切りの文字列から周波数配列に変換します。
 		/// </summary>
 		/// <param name="str">カンマ区切り周波数文字列</param>
