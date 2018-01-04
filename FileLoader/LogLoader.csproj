@@ -40,19 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CtestwinData.cs" />
     <Compile Include="CtestwinLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BinaryReader\FileReader.csproj">
-      <Project>{9eedca20-c715-466c-b9b1-505d1fe4f4e6}</Project>
-      <Name>FileReader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{62c55d4d-3dca-4355-93aa-c4db0a80f3fc}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

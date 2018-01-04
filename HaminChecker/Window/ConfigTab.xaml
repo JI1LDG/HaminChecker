@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="HaminChecker.ConfigTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HaminChecker"
+             mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="一般" Name="TbGeneral">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="2">
+                <StackPanel>
+                    <Label Content="参加コンテスト"/>
+                    <TextBlock Name="TbContestName"/>
+                    <Label Content="参加部門"/>
+                    <ComboBox Name="CbCategory" IsEnabled="False" SelectionChanged="CbCategory_SelectionChanged"/>
+                    <Label Content="最大電力"/>
+                    <WrapPanel Name="WpPower"/>
+                    <Label Content="局種係数"/>
+                    <TextBox Name="TbCoeff" IsEnabled="False" PreviewTextInput="Tbox_PreviewTextInputNumber"/>
+                    <Label Content="通常ｺﾝﾃｽﾄﾅﾝﾊﾞ(RST抜き)"/>
+                    <TextBox Name="TbMainContestNo" CharacterCasing="Upper" IsEnabled="False"/>
+                    <Label Content="追加ｺﾝﾃｽﾄﾅﾝﾊﾞ(RST抜き)"/>
+                    <TextBox Name="TbSubContestNo" CharacterCasing="Upper" IsEnabled="False"/>
+                    <Label Content="最大空中線電力"/>
+                    <DockPanel>
+                        <Label DockPanel.Dock="Right" Content="W"/>
+                        <ComboBox Name="CbPowerValue" IsEditable="True" SelectedIndex="0" PreviewTextInput="Tbox_PreviewTextInputNumber">
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="20"/>
+                            <ComboBoxItem Content="35"/>
+                            <ComboBoxItem Content="50"/>
+                            <ComboBoxItem Content="100"/>
+                        </ComboBox>
+                    </DockPanel>
+                    <Label Content="オペレータリスト"/>
+                    <CheckBox Content="自動集計" Name="CbAutoOperator" Checked="CbAutoOperator_Checked" Unchecked="CbAutoOperator_Checked"/>
+                    <TextBox Name="TbOperator" MinLines="3" TextWrapping="Wrap" IsEnabled="True"/>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="固定" Name="TbSolid">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="2">
+                <StackPanel>
+                    <Label Content="コールサイン"/>
+                    <TextBox Name="TbCallSign" CharacterCasing="Upper" PreviewTextInput="Tbox_PreviewTextInputCallSign"/>
+                    <Label Content="郵便番号"/>
+                    <TextBox Name="TbZipCode" PreviewTextInput="Tbox_PreviewTextInputTelecom"/>
+                    <Label Content="住所"/>
+                    <TextBox Name="TbAddress"/>
+                    <Label Content="電話番号"/>
+                    <TextBox Name="TbPhone" PreviewTextInput="Tbox_PreviewTextInputTelecom"/>
+                    <Label Content="名前"/>
+                    <TextBox Name="TbName"/>
+                    <Label Content="メールアドレス"/>
+                    <TextBox Name="TbMail" PreviewTextInput="Tbox_PreviewTextInputMail"/>
+                    <Label Content="局免許者の氏名"/>
+                    <TextBox Name="TbLicenserName"/>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="移動・他" Name="TbOther">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="2">
+                <StackPanel>
+                    <Label Content="ゲストオペ運用者コールサイン"/>
+                    <TextBox Name="TbGestOp"/>
+                    <Label Content="運用地"/>
+                    <TextBox Name="TbPlace"/>
+                    <Label Content="使用電源"/>
+                    <TextBox Name="TbSupply"/>
+                    <Label Content="使用ロギングソフト・ログ形式"/>
+                    <TextBox Name="TbUseType" Text="自作"/>
+                    <Label Content="意見"/>
+                    <TextBox Name="TbComment" MinLines="2" TextWrapping="Wrap"/>
+                    <Label Content="宣誓文"/>
+                    <TextBox Name="TbOath" MinLines="3" TextWrapping="Wrap"/>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
+</UserControl>

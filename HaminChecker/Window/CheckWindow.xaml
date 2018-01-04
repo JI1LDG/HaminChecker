@@ -1,0 +1,26 @@
+﻿<Window x:Class="HaminChecker.CheckWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HaminChecker"
+        mc:Ignorable="d"
+        Title="CheckWindow" Height="150" Width="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="処理件数: " Grid.Column="0"/>
+            <Label Name="LbNum" Content="{Binding Status}" Grid.Column="1"/>
+        </Grid>
+        <Button Name="BtCancel" Content="キャンセル" DockPanel.Dock="Bottom" Click="BtCancel_Click" Margin="50, 5"/>
+        <Grid Margin="10">
+            <ProgressBar Name="PbExecute" Maximum="100" Minimum="0"/>
+            <Viewbox>
+                <TextBlock Name="TbProgress" Text="0.00%" TextAlignment="Center"/>
+            </Viewbox>
+        </Grid>
+    </DockPanel>
+</Window>
