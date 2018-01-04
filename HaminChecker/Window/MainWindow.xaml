@@ -17,6 +17,8 @@
             <MenuItem Header="処理(_S)">
                 <MenuItem Header="全件確認" Name="MiAllCheck" Click="MiAllCheck_Click"/>
                 <Separator/>
+                <MenuItem Header="電子ログ出力" Name="MiOutput" Click="MiOutput_Click"/>
+                <Separator/>
                 <MenuItem Header="ログ削除" Name="MiLogClear" Click="MiLogClear_Click"/>
             </MenuItem>
             <MenuItem Header="設定(_O)" Name="MiSetting" Click="MiSetting_Click"/>

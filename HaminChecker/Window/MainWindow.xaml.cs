@@ -345,5 +345,21 @@ namespace HaminChecker {
 		private void MiLogClear_Click(object sender, RoutedEventArgs e) {
 			LogGrid.Clear();
 		}
+
+		private void MiOutput_Click(object sender, RoutedEventArgs e) {
+			var send = new CheckData
+			{
+				Logs = LogGrid.ToList(),
+				Gens = se.Gen,
+				Ches = se.Che,
+				ConGen = UcConfigTab.GetGeneral(),
+				Area1 = se.Area1,
+				Area2 = se.Area2,
+				ConSol = UcConfigTab.GetSolid(),
+			};
+
+			var cw = new Output(send);
+			cw.ShowDialog();
+		}
 	}
 }
